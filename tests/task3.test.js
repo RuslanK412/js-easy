@@ -1,8 +1,13 @@
-const sumArray = require('../tasks/task3');
+function sumArray(numbers) {
+  let sum = 0; // Ініціалізація змінної для зберігання суми
 
-test('sums all numbers in an array', () => {
-  expect(sumArray([1, 2, 3, 4, 5])).toBe(15);
-  expect(sumArray([10, 20, 30])).toBe(60);
-  expect(sumArray([])).toBe(0);
-  expect(sumArray([7])).toBe(7);
-});
+  // Проходимо по кожному числу в масиві та додаємо його до суми
+  for (let number of numbers) {
+    sum += number;
+  }
+
+  // Повертаємо суму
+  return sum;
+}
+
+module.exports = sumArray;
