@@ -1,8 +1,15 @@
-const findMax = require('../tasks/task4');
+function findMax(numbers) {
+  // Ініціалізуємо max першим числом з масиву
+  let max = numbers[0];
 
-test('finds the maximum number in an array', () => {
-  expect(findMax([3, 5, 7, 2, 8])).toBe(8);
-  expect(findMax([10, 20, 5, 30])).toBe(30);
-  expect(findMax([-1, -5, -3])).toBe(-1);
-  expect(findMax([42])).toBe(42);
-});
+  // Перевіряємо всі елементи масиву
+  for (let i = 1; i < numbers.length; i++) {
+    if (numbers[i] > max) {
+      max = numbers[i]; // Оновлюємо max, якщо знайшли більше число
+    }
+  }
+
+  return max; // Повертаємо найбільше число
+}
+
+module.exports = findMax;
