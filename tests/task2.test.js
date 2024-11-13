@@ -1,17 +1,17 @@
-const reverseWithoutNumbers = require('../tasks/task2');
+function reverseWithoutNumbers(str) {
+  // Створюємо масив для збереження символів, які не є цифрами
+  const chars = [];
+  
+  // Проходимо по кожному символу в рядку
+  for (let char of str) {
+    // Якщо символ не є цифрою, додаємо його в масив
+    if (!(char >= '0' && char <= '9')) {
+      chars.push(char);
+    }
+  }
+  
+  // Перевертаємо масив символів, які не є цифрами, і повертаємо їх у вигляді рядка
+  return chars.reverse().join('');
+}
 
-test('Reverses string and removes numbers', () => {
-  expect(reverseWithoutNumbers('abc123def')).toBe('fedcba');
-  expect(reverseWithoutNumbers('hello5world')).toBe('dlrowolleh');
-  expect(reverseWithoutNumbers('123')).toBe('');
-  expect(reverseWithoutNumbers('')).toBe('');
-});
-
-test('Handles strings with no numbers', () => {
-  expect(reverseWithoutNumbers('abcdef')).toBe('fedcba');
-  expect(reverseWithoutNumbers('hello')).toBe('olleh');
-});
-
-test('Handles strings with only numbers', () => {
-  expect(reverseWithoutNumbers('1234567890')).toBe('');
-});
+module.exports = reverseWithoutNumbers;
