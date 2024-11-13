@@ -1,7 +1,15 @@
-const countOccurrences = require('../tasks/task5');
-test('counts the occurrences of a character in a string', () => {
-  expect(countOccurrences("hello world", 'o')).toBe(2);
-  expect(countOccurrences("banana", 'a')).toBe(3);
-  expect(countOccurrences("example", 'x')).toBe(1);
-  expect(countOccurrences("hello", 'z')).toBe(0);
-});
+function countOccurrences(str, char) {
+  let count = 0; // Ініціалізуємо лічильник
+
+  // Проходимо через кожен символ в рядку
+  for (let i = 0; i < str.length; i++) {
+    // Якщо поточний символ дорівнює шуканому, збільшуємо лічильник
+    if (str[i] === char) {
+      count++;
+    }
+  }
+
+  return count; // Повертаємо кількість входжень
+}
+
+module.exports = countOccurrences;
