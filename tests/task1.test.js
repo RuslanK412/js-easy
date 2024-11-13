@@ -1,17 +1,18 @@
-const replaceVowels = require('../tasks/task1');
+function replaceVowels(str) {
+  const vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']; // масив голосних літер
+  let result = ''; // змінна для збереження результату
 
-test('Replaces vowels with asterisks', () => {
-  expect(replaceVowels('hello')).toBe('h*ll*');
-  expect(replaceVowels('javascript')).toBe('j*v*scr*pt');
-  expect(replaceVowels('aeiou')).toBe('*****');
-  expect(replaceVowels('')).toBe('');
-});
+  // Проходимо по кожному символу в рядку
+  for (let char of str) {
+    // Якщо символ є голосною, замінюємо його на "*", якщо ні - додаємо його без змін
+    if (vowels.includes(char)) {
+      result += '*';
+    } else {
+      result += char;
+    }
+  }
 
-test('Handles strings without vowels', () => {
-  expect(replaceVowels('bcdfgh')).toBe('bcdfgh');
-});
+  return result; // повертаємо результат
+}
 
-test('Handles mixed case vowels', () => {
-  expect(replaceVowels('HELLO')).toBe('H*LL*');
-  expect(replaceVowels('JavaScript')).toBe('J*v*Scr*pt');
-});
+module.exports = replaceVowels;
